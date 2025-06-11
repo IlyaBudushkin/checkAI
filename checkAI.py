@@ -6,6 +6,5 @@ def delete_unicode_symbols(text):
 
 
 
-
 # a = input()
 # delete_unicode_symbols(a)
