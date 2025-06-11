@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="db62d392-03c0-4bc3-9623-45eea77f52b4" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/checAI.iml" afterDir="false" />
