@@ -8,11 +8,12 @@ from downloader import handle_file
 from file_processing.filling_template import filling_docx
 
 
-async def button_click(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("Вы нажали на кнопку! Вызываю функцию...")
-    filling_docx('downloads/Шаблон.docx', 'Новый текст, который я захотел добавить')
+async def button_resume(update: Update):
+    await update.message.reply_text("Для составления резюме вам придется ответить на несколько вопросов.")
+    new_text_list = []
+    filling_docx('downloads/Шаблон.docx', new_text_list)
 
-async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def start(update: Update):
     buttons = [["Резюме"]]
     keyboard = ReplyKeyboardMarkup(buttons, resize_keyboard=True)
     await update.message.reply_text("👋 Привет! Я — твой умный помощник в мире данных и документов!\n"
@@ -37,7 +38,7 @@ def main():
     # )
 
     application.add_handler(CommandHandler("start", start))
-    application.add_handler(MessageHandler(filters.TEXT & filters.Regex("^Резюме$"), button_click))
+    application.add_handler(MessageHandler(filters.TEXT & filters.Regex("^Резюме$"), button_resume))
 
     # Запускаем бота
     application.run_polling()
